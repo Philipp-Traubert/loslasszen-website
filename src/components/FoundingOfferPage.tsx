@@ -88,6 +88,10 @@ export function FoundingOfferPage() {
           <div className="content-section intro-content-section">
             <GlassPanel className="glass-panel-custom paid-session-page-panel">
               <div className="space-y-10">
+                <SereneReveal delay={0} className="kennenlernen-pre-title-notice">
+                  <BabyNotice />
+                </SereneReveal>
+
                 <div>
                   <InkSplashHeading delay={0.2} className="mb-4">
                     <h1 className="heading-xl">60-minütige Kennenlern-Sitzung in Eberswalde</h1>
@@ -100,12 +104,8 @@ export function FoundingOfferPage() {
 
                 <SereneReveal delay={600} scrollDelay={100}>
                   <p className="text-body leading-relaxed">
-                    Herzlich Willkommen bei meinem Gründungsangebot. Nur für die ersten 30 Kund:innen.<br></br>Für Menschen, die Philipps Körperarbeit kennenlernen möchten und offen dafür sind, im Anschluss ehrliches Feedback zu ihrer Erfahrung zu geben. Termin online in unter 1 Minute reservieren.
+                    Herzlich Willkommen bei meinem Kennenlernen-Angebot nur für Neukund:innen.
                   </p>
-                </SereneReveal>
-
-                <SereneReveal delay={680} scrollDelay={110}>
-                  <BabyNotice />
                 </SereneReveal>
 
                 <div className="space-y-6">
