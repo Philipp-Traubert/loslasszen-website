@@ -82,6 +82,10 @@ export default function App() {
           <div className="content-section intro-content-section">
             <GlassPanel className="glass-panel-custom">
               <div className="space-y-12">
+                <SereneReveal delay={100} scrollDelay={50}>
+                  <BabyNotice />
+                </SereneReveal>
+
                 <div>
                   <InkSplashHeading delay={0.2} className="mb-4">
                     <h1 className="heading-xl">
@@ -107,10 +111,6 @@ export default function App() {
                     </div>
                   </SereneReveal>
                 </div>
-
-                <SereneReveal delay={1220} scrollDelay={180}>
-                  <BabyNotice />
-                </SereneReveal>
 
                 <div className="space-y-8 mt-16">
                   <SereneReveal delay={1400} scrollDelay={100}>
