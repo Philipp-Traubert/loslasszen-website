@@ -174,9 +174,8 @@ export default function App() {
                     </h3>
                     <div className="text-body mb-8">
                       <ul className="pl-6 list-bullet">
-                        <li>Als Gründungsangebot gibt es für die ersten 30 Kunden jeweils eine Kennenlern-Sitzung pro Person zum halben Preis von 60 €.</li>
+                        <li>Jeder Neukunde erhält eine Kennenlern-Sitzung zum halben Preis von 60 €.</li>
                         <li>Alle Angebote kannst du in 60 Sekunden direkt online buchen.</li>
-                        <li>Aufgrund der neuen Vaterschaft biete ich, wenn möglich, Hausbesuche im nahen Umfeld ohne Aufpreis an.</li>
                       </ul>
                     </div>
                     <GradientButton

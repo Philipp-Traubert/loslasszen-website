@@ -16,3 +16,8 @@ Project-specific operating notes for Sage and any delegated coding/design work o
 
 - Preserve the calm, minimal, elegant Loslasszen aesthetic unless Philipp explicitly asks for a different direction.
 - Prefer simple, visually coherent solutions over feature bloat.
+
+## Brand Language
+
+- The spelling "loslasszen" with the extra "z" is intentional wordplay based on the company name.
+- Never correct an existing "loslasszen" to "loslassen".

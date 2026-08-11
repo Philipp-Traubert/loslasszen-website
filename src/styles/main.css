@@ -1377,6 +1377,10 @@ body,
     margin-top: var(--spacing-12);
 }
 
+.kennenlernen-pre-title-notice {
+    margin-bottom: 2vh;
+}
+
 .paid-session-inline-cta {
     margin-top: var(--spacing-8);
     margin-bottom: var(--spacing-8);
