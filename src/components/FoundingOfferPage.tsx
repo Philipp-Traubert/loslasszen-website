@@ -104,7 +104,7 @@ export function FoundingOfferPage() {
 
                 <SereneReveal delay={600} scrollDelay={100}>
                   <p className="text-body leading-relaxed">
-                    Herzlich Willkommen bei meinem Kennenlernen-Angebot nur für Neukund:innen.
+                    Herzlich Willkommen bei meinem Kennenlernen-Angebot nur für Neukund:innen. Für Menschen, die Philipps Körperarbeit kennenlernen möchten und offen dafür sind, im Anschluss ehrliches Feedback zu ihrer Erfahrung zu geben. Termin online in unter 1 Minute reservieren.
                   </p>
                 </SereneReveal>
 

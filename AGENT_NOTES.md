@@ -6,6 +6,7 @@ Project-specific operating notes for Sage and any delegated coding/design work o
 
 - Never push to `main` without Philipp's explicit request.
 - Never deploy, publish, or otherwise ship changes without Philipp's explicit request.
+- When Philipp says "pushen" or "bitte pushe", this explicitly includes committing, pushing, merging to `main`, deploying to production, and verifying the live site.
 - Default stopping point is one of:
   - local uncommitted changes
   - a local commit
