@@ -10,7 +10,6 @@ import { GradientButton } from './components/GradientButton';
 import { Footer } from './components/Footer';
 import { ReviewsSection } from './components/reviews/ReviewsSection';
 import { FallingBlossoms } from './components/FallingBlossoms';
-import { BabyNotice } from './components/BabyNotice';
 import { trackExternalLink } from './utils/matomo';
 import sumiBranch from './assets/branch-transparent.webp';
 import paperTexture from './assets/b67594e9b3c439245fdadadaacf25076d0420eda Large.jpeg';
@@ -82,10 +81,6 @@ export default function App() {
           <div className="content-section intro-content-section">
             <GlassPanel className="glass-panel-custom">
               <div className="space-y-12">
-                <SereneReveal delay={100} scrollDelay={50}>
-                  <BabyNotice />
-                </SereneReveal>
-
                 <div>
                   <InkSplashHeading delay={0.2} className="mb-4">
                     <h1 className="heading-xl">
