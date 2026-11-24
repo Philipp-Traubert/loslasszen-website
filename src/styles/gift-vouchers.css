@@ -1,0 +1,175 @@
+.gift-page {
+  color-scheme: only light;
+  min-height: 100dvh;
+  background: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+}
+
+.gift-wrap {
+  width: min(100% - 3rem, 73rem);
+  margin-inline: auto;
+}
+
+.gift-header {
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: .8125rem;
+}
+
+.gift-home img {
+  display: block;
+  width: 8rem;
+  height: auto;
+}
+
+.gift-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.13fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  padding-bottom: var(--spacing-12);
+}
+
+.gift-page > main { padding-block: var(--spacing-8) var(--spacing-12); }
+
+.gift-intro > p {
+  max-width: 35ch;
+  margin-bottom: var(--spacing-8);
+}
+
+.gift-options { min-width: 0; border: 0; }
+.gift-options legend { margin-bottom: .5rem; font-size: .875rem; }
+
+.gift-option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: .625rem;
+  padding: .875rem .125rem;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.gift-option input { width: 1rem; height: 1rem; margin-top: .25rem; accent-color: var(--accent-color); }
+.gift-option-copy { display: grid; gap: .15rem; }
+.gift-option-copy span { font-size: .875rem; }
+.gift-price { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.gift-message-label { display: block; margin: 1.25rem 0 .375rem; font-size: .875rem; }
+
+.gift-intro textarea {
+  width: 100%;
+  min-height: 3.5rem;
+  padding: .5rem .625rem;
+  color: var(--text-primary);
+  background: var(--card);
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: .9375rem;
+  resize: vertical;
+}
+
+.gift-page :focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; }
+.gift-preview { min-width: 0; }
+.gift-preview figcaption { margin-top: .75rem; font-size: .875rem; }
+
+.gift-paper {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: clamp(20rem, 29vw, 24.5rem);
+  padding: clamp(1.125rem, 3vw, 2.5rem);
+  color: #222222;
+  background: #faf8f5 center / cover;
+  border: 1px solid #d9cbc1;
+  box-shadow: 0 1.25rem 3rem rgba(75, 46, 36, .11);
+}
+
+.gift-branch {
+  position: absolute;
+  z-index: -1;
+  width: 65%;
+  height: auto;
+  right: -9%;
+  top: -9%;
+  transform: scaleX(-1);
+  opacity: .87;
+}
+
+.gift-paper-content { width: 65%; }
+.gift-wordmark { display: block; width: 7rem; height: auto; margin: -.875rem 0 0 -1rem; }
+.gift-card-label { color: #8a1839; font-size: .8125rem; }
+
+.gift-card-title {
+  margin-block: .5rem;
+  font-size: clamp(2.125rem, 4.2vw, 3.625rem);
+  line-height: .98;
+  letter-spacing: -.05em;
+}
+
+.gift-card-offer { font-size: .9375rem; }
+.gift-card-message { margin-top: .5rem; font-size: .8125rem; overflow-wrap: anywhere; }
+.gift-card-code { width: fit-content; margin-top: 1rem; border-top: 1px solid #ab837f; padding-top: .375rem; color: #584743; font-size: .75rem; }
+
+.gift-how {
+  padding-top: var(--spacing-6);
+  border-top: 1px solid var(--border-color);
+}
+
+.gift-how p { max-width: 62ch; }
+
+.gift-text-link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  text-underline-offset: .22em;
+}
+
+button.gift-text-link { background: none; border: 0; font: inherit; cursor: pointer; }
+.gift-recipient-main { max-width: 45rem; }
+.gift-recipient-copy { margin-top: var(--spacing-6); }
+.gift-recipient-copy p + p { margin-top: var(--spacing-2); }
+.gift-recipient-session { margin-top: var(--spacing-6); padding-top: var(--spacing-3); border-top: 1px solid var(--border-color); break-inside: avoid; }
+.gift-recipient-actions { display: flex; flex-wrap: wrap; align-items: start; gap: .5rem 1.5rem; }
+.gift-booking-pending { font-size: .875rem; }
+.gift-print-qr { display: none; }
+
+@media (max-width: 767px) {
+  .gift-wrap { width: calc(100% - 2rem); }
+  .gift-page .gift-content-panel { padding: var(--spacing-4); }
+  .gift-hero { grid-template-columns: 1fr; }
+  .gift-paper { min-height: 17rem; }
+}
+
+@media print {
+  .gift-recipient { background: #fff; min-height: 0; }
+  .gift-recipient .gift-screen-only { display: none; }
+  .gift-page > .gift-recipient-main { width: 100%; max-width: none; padding: 0; font-size: 10pt; }
+  .gift-recipient .gift-content-panel { padding: 0; border: 0; background: none; box-shadow: none; backdrop-filter: none; }
+  .gift-recipient .gift-content-panel::after { display: none; }
+  .gift-recipient-copy { font-size: 10pt; }
+  .gift-recipient-title { margin-bottom: .5rem; font-size: 15pt; }
+  .gift-recipient .gift-paper {
+    min-height: 0;
+    padding: .8rem 1.25rem;
+    box-shadow: none;
+    print-color-adjust: exact;
+    break-inside: avoid;
+  }
+  .gift-recipient .gift-branch { width: 49%; }
+  .gift-recipient .gift-card-title { font-size: 29pt; }
+  .gift-recipient .gift-wordmark { width: 6rem; }
+  .gift-recipient-session { margin-top: .75rem; padding-top: .5rem; }
+  .gift-recipient-session h2 { margin-bottom: .2rem; font-size: 11pt; }
+  .gift-print-qr { display: block; margin: 0; text-align: center; }
+  .gift-print-qr svg { display: block; width: 32mm; height: 32mm; print-color-adjust: exact; }
+  .gift-print-qr figcaption { font-size: 9pt; }
+}

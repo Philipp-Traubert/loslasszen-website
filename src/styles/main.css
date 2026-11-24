@@ -961,10 +961,19 @@ body,
     .content-section>* {
         pointer-events: auto;
     }
+
+    .content-section > .home-intro-panel {
+        max-width: 716px;
+    }
 }
 
 .intro-content-section {
     padding-bottom: var(--spacing-16);
+    min-width: 0;
+}
+
+.intro-content-section > .glass-panel {
+    max-width: 720px;
 }
 
 .glass-panel-custom {

@@ -43,6 +43,7 @@
         _paq.push(['disableCookies']);
         _paq.push(['setDoNotTrack', true]);
         (function() {
+          if (window.location.pathname.startsWith('/gutschein/')) return;
           var u="https://matomo.loslasszen.de/";
           _paq.push(['setTrackerUrl', u+'matomo.php']);
           _paq.push(['setSiteId', '1']);

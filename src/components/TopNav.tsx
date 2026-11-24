@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import logo from '../assets/logo.png';
 import { GradientButton } from './GradientButton';
+import { voucherSalesEnabled } from '../voucher-checkout';
 
 const COLLAPSE_BREAKPOINT = '(max-width: 980px)';
 const DOCK_ON_SCROLL_Y = 64;
 const UNDOCK_ON_SCROLL_Y = 20;
 
-export function TopNav() {
+export function TopNav({ hideBooking = false }: { hideBooking?: boolean } = {}) {
     const [docked, setDocked] = useState(false);
     const [compactNav, setCompactNav] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -74,6 +75,7 @@ export function TopNav() {
                 <div className="top-nav-inline-links" aria-hidden={compactNav || !isHomePage}>
                     {isHomePage ? (
                         <>
+                            {(import.meta.env.DEV || voucherSalesEnabled) && <a href="/gutscheine" className="top-nav-link">Gutscheine</a>}
                             <a href="#bewertungen" className="top-nav-link">Bewertungen</a>
                             <a href="#about-me-heading" className="top-nav-link">Über mich</a>
                         </>
@@ -99,6 +101,7 @@ export function TopNav() {
                     <div id="top-nav-mobile-menu" className="top-nav-mobile-menu" aria-hidden={!compactNav || !menuOpen}>
                         {isHomePage ? (
                             <>
+                                {(import.meta.env.DEV || voucherSalesEnabled) && <a href="/gutscheine" className="top-nav-mobile-link" onClick={closeMenu}>Gutscheine</a>}
                                 <a href="#bewertungen" className="top-nav-mobile-link" onClick={closeMenu}>Bewertungen</a>
                                 <a href="#about-me-heading" className="top-nav-mobile-link" onClick={closeMenu}>Über mich</a>
                             </>
@@ -108,12 +111,12 @@ export function TopNav() {
                     </div>
                 </div>
 
-                <GradientButton
+                {!hideBooking && <GradientButton
                     href="https://cal.com/loslasszen"
                     target="_blank"
                 >
                     Direkt Buchen
-                </GradientButton>
+                </GradientButton>}
             </div>
         </nav>
     );

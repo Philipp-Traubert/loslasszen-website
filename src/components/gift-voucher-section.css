@@ -1,0 +1,43 @@
+:is(.gift-shop, #weihnachten, #einloesebedingungen) {
+  scroll-margin-top: calc(var(--nav-height) + var(--nav-gap) + 2rem);
+}
+
+.gift-shop-page {
+  margin-top: calc(var(--nav-height) + var(--nav-gap) + var(--spacing-8));
+  margin-bottom: var(--spacing-12);
+  font-family: var(--font-body), sans-serif;
+}
+
+.gift-shop-page :is(h1, h2, h3) { hyphens: auto; overflow-wrap: anywhere; }
+
+.gift-shop .gift-shop-copy p,
+.gift-shop-offer p { max-width: 62ch; margin-top: var(--spacing-2); }
+.gift-shop .gift-shop-detail { font-size: .9rem; }
+.gift-shop-singles { margin-top: var(--spacing-8); }
+.gift-shop-packages { border-top: 1px solid var(--border-color); padding-top: var(--spacing-8); }
+
+.gift-shop-offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--spacing-4) var(--spacing-8);
+  padding: var(--spacing-6) 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.gift-shop-order { text-align: right; }
+.gift-shop-link,
+.gift-shop-order a:not(.gradient-button) { color: var(--text-primary); text-decoration: underline var(--accent-color); text-underline-offset: .22em; }
+.gift-shop-order a { margin-top: var(--spacing-2); }
+.gift-shop-order a:not(.gradient-button) { display: inline-block; }
+.gift-shop-order .gradient-button { display: inline-flex; max-width: 100%; }
+.gift-shop .gift-shop-featured { border-top-color: var(--accent-color); }
+.gift-shop-featured .heading-lg { margin-bottom: 0; }
+.gift-shop-how dt { font-weight: 600; margin-top: var(--spacing-4); }
+.gift-shop-how dd { max-width: 62ch; }
+
+@media (max-width: 640px) {
+  .gift-shop-offer { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
+  .gift-shop-order { text-align: left; }
+  .gift-shop-page .glass-panel { padding: var(--spacing-6); }
+  .gift-shop-page .heading-xl { font-size: 1.75rem; }
+}

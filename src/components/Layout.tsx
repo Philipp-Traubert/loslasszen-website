@@ -6,12 +6,14 @@ interface LayoutProps {
   children: ReactNode;
   fixedBackground?: boolean;
   fixedBlossoms?: boolean;
+  winterBlossoms?: boolean;
 }
 
 export function Layout({
   children,
   fixedBackground = true,
   fixedBlossoms = true,
+  winterBlossoms = false,
 }: LayoutProps) {
   return (
     <>
@@ -32,16 +34,16 @@ export function Layout({
         )}
 
         {fixedBlossoms && (
-          <div className="blossoms-layer" style={{ zIndex: 1 }}>
-            <FallingBlossoms layer="back" />
+          <div className="blossoms-layer" style={{ zIndex: 1 }} aria-hidden="true">
+            <FallingBlossoms layer="back" winter={winterBlossoms} />
           </div>
         )}
 
         <div className="content-layer">{children}</div>
 
         {fixedBlossoms && (
-          <div className="blossoms-layer" style={{ zIndex: 3 }}>
-            <FallingBlossoms layer="front" />
+          <div className="blossoms-layer" style={{ zIndex: 3 }} aria-hidden="true">
+            <FallingBlossoms layer="front" winter={winterBlossoms} />
           </div>
         )}
       </div>

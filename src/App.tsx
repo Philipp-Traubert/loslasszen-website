@@ -10,6 +10,8 @@ import { GradientButton } from './components/GradientButton';
 import { Footer } from './components/Footer';
 import { ReviewsSection } from './components/reviews/ReviewsSection';
 import { FallingBlossoms } from './components/FallingBlossoms';
+import { GiftVoucherSection } from './components/GiftVoucherSection';
+import { voucherSalesEnabled } from './voucher-checkout';
 import { trackExternalLink } from './utils/matomo';
 import sumiBranch from './assets/branch-transparent.webp';
 import paperTexture from './assets/b67594e9b3c439245fdadadaacf25076d0420eda Large.jpeg';
@@ -79,7 +81,7 @@ export default function App() {
           </div>
 
           <div className="content-section intro-content-section">
-            <GlassPanel className="glass-panel-custom">
+            <GlassPanel className="glass-panel-custom home-intro-panel">
               <div className="space-y-12">
                 <div>
                   <InkSplashHeading delay={0.2} className="mb-4">
@@ -169,7 +171,7 @@ export default function App() {
                     </h3>
                     <div className="text-body mb-8">
                       <ul className="pl-6 list-bullet">
-                        <li>Jeder Neukunde erhält eine Kennenlern-Sitzung zum halben Preis von 60 €.</li>
+                        <li>Jeder Neukunde erhält eine Kennenlern-Sitzung zum halben Preis von 60&nbsp;€.</li>
                         <li>Alle Angebote kannst du in 60 Sekunden direkt online buchen.</li>
                       </ul>
                     </div>
@@ -186,6 +188,8 @@ export default function App() {
             </GlassPanel>
           </div>
         </section>
+
+        {(import.meta.env.DEV || voucherSalesEnabled) && <GiftVoucherSection />}
 
         <section className="full-width-section testimonials-section" aria-labelledby="bewertungen">
           <GlassPanel className="full-width-glass-panel">

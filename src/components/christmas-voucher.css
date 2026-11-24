@@ -1,0 +1,75 @@
+.christmas-voucher .christmas-label { margin-bottom: var(--spacing-3); }
+.christmas-voucher .christmas-subheading { margin-top: var(--spacing-3); font-weight: 400; }
+.christmas-voucher .intro-content-section { min-height: 0; padding-bottom: var(--spacing-8); }
+.christmas-voucher .intro-sticky-stage { height: min(100vh, 100%); }
+.christmas-voucher .sumi-e-image-inner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: min(100vh, max(100vw, 1300px));
+  aspect-ratio: 1;
+  transform: translateY(-50%) scale(.9);
+  transform-origin: left center;
+  background:
+    radial-gradient(circle 4% at 30.1% 28.3%, rgba(255, 188, 69, .42), transparent 100%),
+    radial-gradient(circle 4% at 65.2% 36.7%, rgba(255, 188, 69, .42), transparent 100%),
+    radial-gradient(circle 4% at 39.6% 49.2%, rgba(255, 188, 69, .42), transparent 100%);
+  pointer-events: none;
+  animation: christmas-candle-glow 3.8s ease-in-out infinite;
+}
+.christmas-voucher .sumi-e-image-inner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: min(100vh, max(100vw, 1300px));
+  aspect-ratio: 1;
+  transform: translateY(-50%) scale(.9);
+  transform-origin: left center;
+  background:
+    radial-gradient(ellipse .32% .8% at 30.1% 28.3%, #fff8d4, rgba(255, 180, 51, .6) 55%, transparent 100%),
+    radial-gradient(ellipse .32% .8% at 65.2% 36.7%, #fff8d4, rgba(255, 180, 51, .6) 55%, transparent 100%),
+    radial-gradient(ellipse .32% .8% at 39.6% 49.2%, #fff8d4, rgba(255, 180, 51, .6) 55%, transparent 100%);
+  pointer-events: none;
+  animation: christmas-flame-flicker 2.4s ease-in-out infinite alternate;
+}
+@keyframes christmas-flame-flicker {
+  0%, 100% { background-position: 0 0, 0 0, 0 0; opacity: .75; }
+  35% { background-position: 1px -1px, -1px 0, 1px 0; opacity: 1; }
+  70% { background-position: -1px 0, 1px -1px, -1px -1px; opacity: .8; }
+}
+@keyframes christmas-candle-glow {
+  0%, 100% { opacity: .4; }
+  27% { opacity: .8; }
+  42% { opacity: .55; }
+  63% { opacity: .9; }
+  78% { opacity: .5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .christmas-voucher .sumi-e-image-inner::after { animation: none; opacity: .6; }
+  .christmas-voucher .sumi-e-image-inner::before { animation: none; }
+}
+.christmas-voucher .christmas-copy { max-width: 65ch; }
+.christmas-voucher .christmas-copy p + p { margin-top: var(--spacing-3); }
+.christmas-voucher-content > .glass-panel + .glass-panel { margin-top: var(--spacing-8); }
+.christmas-voucher .christmas-offer-copy { max-width: 65ch; }
+.christmas-voucher .christmas-offer p + p { margin-top: var(--spacing-3); }
+.christmas-voucher .christmas-price { display: flex; align-items: baseline; gap: 1rem; }
+.christmas-voucher .christmas-price .heading-lg { margin: 0; }
+.christmas-voucher .gradient-button { margin-top: var(--spacing-4); }
+.christmas-voucher .christmas-rule { border-top: 1px solid var(--border-color); padding-top: var(--spacing-8); }
+.christmas-voucher .christmas-quote { max-width: 65ch; margin-bottom: var(--spacing-4); }
+.christmas-voucher .christmas-quote footer { margin-top: var(--spacing-3); font-size: .9rem; }
+.christmas-voucher .christmas-steps { list-style: decimal; padding-left: 1.4rem; max-width: 65ch; }
+.christmas-voucher .christmas-steps li + li { margin-top: var(--spacing-2); }
+.christmas-voucher .christmas-followup { max-width: 65ch; margin-top: var(--spacing-6); }
+
+.christmas-voucher .christmas-faq details { border-bottom: 1px solid var(--border-color); padding: var(--spacing-4) 0; }
+.christmas-voucher .christmas-faq summary { cursor: pointer; font-weight: 600; }
+.christmas-voucher .christmas-faq details p { max-width: 62ch; margin-top: var(--spacing-2); }
+
+.christmas-voucher-content { margin-top: 0; margin-bottom: var(--spacing-12); }
+@media (max-width: 640px) {
+  .christmas-voucher-content .glass-panel { padding: var(--spacing-6); }
+}

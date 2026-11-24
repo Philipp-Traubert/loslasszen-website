@@ -5,14 +5,21 @@ import blossom2 from '../assets/falling-blossoms/blossom-2.png';
 import blossom3 from '../assets/falling-blossoms/blossom-3.png';
 import blossom4 from '../assets/falling-blossoms/blossom-4.png';
 import blossom5 from '../assets/falling-blossoms/blossom-5.png';
+import snowflake from '../assets/falling-blossoms/snowflake.svg';
+import snowflakeFine from '../assets/falling-blossoms/snowflake-fine.svg';
+import snowflakeStar from '../assets/falling-blossoms/snowflake-star.svg';
+import snowflakeCrystal from '../assets/falling-blossoms/snowflake-crystal.svg';
+import snowflakeFern from '../assets/falling-blossoms/snowflake-fern.svg';
 
 const blossomImages = [blossom1, blossom2, blossom3, blossom4, blossom5];
+const snowflakeImages = [snowflake, snowflakeFine, snowflakeStar, snowflakeCrystal, snowflakeFern];
 
 interface FallingBlossomsProps {
   layer: 'front' | 'back';
+  winter?: boolean;
 }
 
-export function FallingBlossoms({ layer }: FallingBlossomsProps) {
+export function FallingBlossoms({ layer, winter = false }: FallingBlossomsProps) {
   const [blossoms, setBlossoms] = useState<Array<{
     id: number;
     startX: number;
@@ -34,7 +41,7 @@ export function FallingBlossoms({ layer }: FallingBlossomsProps) {
   }>>([]);
 
   useEffect(() => {
-    const count = layer === 'front' ? 5 : 8;
+    const count = winter ? 20 : (layer === 'front' ? 5 : 8);
     const newBlossoms = Array.from({ length: count }).map((_, i) => {
       // Determine start position
       // 30% chance to start off-screen left (-15% to 0%)
@@ -68,7 +75,7 @@ export function FallingBlossoms({ layer }: FallingBlossomsProps) {
         startY: startY,
         endX: endX,
         endY: endY,
-        delay: Math.random() * 24,
+        delay: Math.random() * (winter ? 16 : 24),
         duration: 34 + Math.random() * 14,
         scale: 0.72 + Math.random() * 0.18,
         imageIndex: Math.floor(Math.random() * blossomImages.length),
@@ -83,7 +90,7 @@ export function FallingBlossoms({ layer }: FallingBlossomsProps) {
       };
     });
     setBlossoms(newBlossoms);
-  }, [layer]);
+  }, [layer, winter]);
 
   return (
     <div className="falling-blossoms-container" style={{ perspective: '800px', overflow: 'visible' }}>
@@ -92,7 +99,7 @@ export function FallingBlossoms({ layer }: FallingBlossomsProps) {
           key={blossom.id}
           className="falling-blossom-wrapper"
           style={{
-            width: '30px',
+            width: winter && blossom.id % 10 < 8 ? '22px' : '30px',
             height: 'auto',
           }}
           initial={{ top: `${blossom.startY}vh`, left: `${blossom.startX}%`, opacity: 0 }}
@@ -158,8 +165,8 @@ export function FallingBlossoms({ layer }: FallingBlossomsProps) {
             }}
           >
             <motion.img
-              src={blossomImages[blossom.imageIndex]}
-              alt="Falling blossom"
+              src={winter && blossom.id % 10 < 8 ? snowflakeImages[(Math.floor(blossom.id / 10) * 8 + blossom.id % 10 + (layer === 'front' ? 2 : 0)) % snowflakeImages.length] : blossomImages[blossom.imageIndex]}
+              alt=""
               className="falling-blossom-image"
               style={{
                 scale: blossom.scale,
