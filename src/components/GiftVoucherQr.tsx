@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 
 const border = 4;
 
-export function GiftVoucherQr({ url, label }: { url: string; label: string }) {
+export function GiftVoucherQr({ url, label, hideLabel = false }: { url: string; label: string; hideLabel?: boolean }) {
   const { size, data } = encode(url, { border, ecc: 'H' });
   const center = size / 2;
   const end = size - border;
@@ -12,9 +12,8 @@ export function GiftVoucherQr({ url, label }: { url: string; label: string }) {
   const logoHeight = logoWidth * 558 / 1024;
 
   return (
-    <figure className="gift-print-qr">
+    <figure className="gift-print-qr" style={hideLabel ? { transform: `translateY(calc(26mm * ${border / size} - 1.3mm))` } : undefined}>
       <svg viewBox={`0 0 ${size} ${size}`} role="img" aria-label={`QR-Code: ${label}`}>
-        <rect width={size} height={size} fill="#fff" />
         {data.flatMap((row, y) => row.map((dark, x) => {
           if (!dark || Math.hypot(x + .5 - center, y + .5 - center) < radius) return null;
           const left = x >= border && x < border + 7;
@@ -24,7 +23,7 @@ export function GiftVoucherQr({ url, label }: { url: string; label: string }) {
         }))}
         <image href={logo} x={center - logoWidth / 2} y={center - logoHeight / 2} width={logoWidth} height={logoHeight} />
       </svg>
-      <figcaption>{label}</figcaption>
+      {!hideLabel && <figcaption>{label}</figcaption>}
     </figure>
   );
 }

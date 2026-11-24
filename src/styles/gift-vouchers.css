@@ -149,27 +149,57 @@ button.gift-text-link { background: none; border: 0; font: inherit; cursor: poin
   .gift-paper { min-height: 17rem; }
 }
 
+.gift-card-print-details { display: none; }
+
 @media print {
   .gift-recipient { background: #fff; min-height: 0; }
-  .gift-recipient .gift-screen-only { display: none; }
-  .gift-page > .gift-recipient-main { width: 100%; max-width: none; padding: 0; font-size: 10pt; }
+  .gift-recipient .gift-screen-only, .gift-recipient .gift-recipient-title, .gift-recipient .gift-recipient-copy, .gift-recipient .gift-recipient-session { display: none; }
+  .gift-recipient > .gift-recipient-main { width: 100%; max-width: none; padding: 0; }
   .gift-recipient .gift-content-panel { padding: 0; border: 0; background: none; box-shadow: none; backdrop-filter: none; }
   .gift-recipient .gift-content-panel::after { display: none; }
-  .gift-recipient-copy { font-size: 10pt; }
-  .gift-recipient-title { margin-bottom: .5rem; font-size: 15pt; }
   .gift-recipient .gift-paper {
-    min-height: 0;
-    padding: .8rem 1.25rem;
-    box-shadow: none;
-    print-color-adjust: exact;
-    break-inside: avoid;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 5mm; min-height: 0; padding: 8mm 9mm; box-shadow: none;
+    print-color-adjust: exact; -webkit-print-color-adjust: exact; break-inside: avoid;
   }
-  .gift-recipient .gift-branch { width: 49%; }
+  .gift-recipient .gift-branch { width: 48%; right: -7%; top: -15%; }
+  .gift-recipient .gift-paper-content { width: 40%; flex-shrink: 0; }
   .gift-recipient .gift-card-title { font-size: 29pt; }
   .gift-recipient .gift-wordmark { width: 6rem; }
-  .gift-recipient-session { margin-top: .75rem; padding-top: .5rem; }
-  .gift-recipient-session h2 { margin-bottom: .2rem; font-size: 11pt; }
-  .gift-print-qr { display: block; margin: 0; text-align: center; }
-  .gift-print-qr svg { display: block; width: 32mm; height: 32mm; print-color-adjust: exact; }
-  .gift-print-qr figcaption { font-size: 9pt; }
+  .gift-recipient .gift-card-print-details { display: flex; align-items: flex-end; justify-content: flex-end; gap: 3mm; min-width: 0; flex: 1; position: relative; padding-top: 35mm; }
+  .gift-recipient .gift-card-print-code { min-width: 0; flex: 1; text-align: right; font-size: 8.5pt; line-height: 1.4; overflow-wrap: anywhere; }
+  .gift-recipient .gift-card-print-code strong { display: block; margin: 1mm 0; font-size: 11pt; letter-spacing: .03em; }
+  .gift-recipient .gift-card-print-code p + p { margin-top: 1mm; }
+  .gift-recipient .gift-card-print-links { display: flex; flex-direction: column; align-items: flex-end; gap: 2mm; flex-shrink: 0; }
+  .gift-recipient .gift-card-print-link { display: flex; gap: 2mm; }
+  .gift-recipient .gift-card-print-links > p { width: 100%; font-size: 8pt; text-align: right; }
+  .gift-recipient .gift-card-print-links .gift-print-qr { display: block; margin: 0; text-align: center; }
+  .gift-recipient .gift-card-print-links .gift-print-qr svg { display: block; width: 26mm; height: 26mm; print-color-adjust: exact; }
+  .gift-recipient .gift-card-print-links .gift-print-qr figcaption { max-width: 26mm; font-size: 7pt; line-height: 1.15; }
+}
+
+@media screen {
+  .gift-print-preview { background: #fff; min-height: 0; }
+  .gift-print-preview .gift-screen-only, .gift-print-preview .gift-recipient-title, .gift-print-preview .gift-recipient-copy, .gift-print-preview .gift-recipient-session { display: none; }
+  .gift-print-preview > .gift-recipient-main { width: 100%; max-width: none; padding: 0; }
+  .gift-print-preview .gift-content-panel { padding: 0; border: 0; background: none; box-shadow: none; backdrop-filter: none; }
+  .gift-print-preview .gift-content-panel::after { display: none; }
+  .gift-print-preview .gift-paper {
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 5mm; min-height: 0; padding: 8mm 9mm; box-shadow: none;
+    print-color-adjust: exact; -webkit-print-color-adjust: exact; break-inside: avoid;
+  }
+  .gift-print-preview .gift-branch { width: 48%; right: -7%; top: -15%; }
+  .gift-print-preview .gift-paper-content { width: 40%; flex-shrink: 0; }
+  .gift-print-preview .gift-card-title { font-size: 29pt; }
+  .gift-print-preview .gift-wordmark { width: 6rem; }
+  .gift-print-preview .gift-card-print-details { display: flex; align-items: flex-end; justify-content: flex-end; gap: 3mm; min-width: 0; flex: 1; position: relative; padding-top: 35mm; }
+  .gift-print-preview .gift-card-print-code { min-width: 0; flex: 1; text-align: right; font-size: 8.5pt; line-height: 1.4; overflow-wrap: anywhere; }
+  .gift-print-preview .gift-card-print-code strong { display: block; margin: 1mm 0; font-size: 11pt; letter-spacing: .03em; }
+  .gift-print-preview .gift-card-print-code p + p { margin-top: 1mm; }
+  .gift-print-preview .gift-card-print-links { display: flex; flex-direction: column; align-items: flex-end; gap: 2mm; flex-shrink: 0; }
+  .gift-print-preview .gift-card-print-link { display: flex; gap: 2mm; }
+  .gift-print-preview .gift-card-print-links > p { width: 100%; font-size: 8pt; text-align: right; }
+  .gift-print-preview .gift-card-print-links .gift-print-qr { display: block; margin: 0; text-align: center; }
+  .gift-print-preview .gift-card-print-links .gift-print-qr svg { display: block; width: 26mm; height: 26mm; print-color-adjust: exact; }
+  .gift-print-preview .gift-card-print-links .gift-print-qr figcaption { max-width: 26mm; font-size: 7pt; line-height: 1.15; }
+  .gift-print-preview > .gift-recipient-main { max-width: 190mm; margin: 25px auto; }
 }

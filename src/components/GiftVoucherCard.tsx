@@ -3,8 +3,9 @@ import logo from '../assets/logo.png';
 import paper from '../assets/b67594e9b3c439245fdadadaacf25076d0420eda Large.jpeg';
 import { voucherSessionSummary, type VoucherOffer } from '../voucher-offers';
 import '../styles/gift-vouchers.css';
+import type { ReactNode } from 'react';
 
-export function GiftVoucherCard({ offer, message, issued = false }: { offer: VoucherOffer; message?: string; issued?: boolean }) {
+export function GiftVoucherCard({ offer, message, issued = false, printDetails }: { offer: VoucherOffer; message?: string; issued?: boolean; printDetails?: ReactNode }) {
   return (
     <div className="gift-paper" style={{ backgroundImage: `linear-gradient(105deg, rgba(250, 248, 245, .92), rgba(250, 248, 245, .64)), url(${paper})` }}>
       <img className="gift-branch" src={branch} alt="" width="1311" height="1311" />
@@ -17,6 +18,7 @@ export function GiftVoucherCard({ offer, message, issued = false }: { offer: Vou
         <p className="gift-card-message">{message?.trim() || 'Zeit für dich.'}</p>
         {!issued && <p className="gift-card-code">Muster · Nicht einlösbar</p>}
       </div>
+      {printDetails}
     </div>
   );
 }

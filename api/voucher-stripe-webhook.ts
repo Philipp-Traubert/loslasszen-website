@@ -110,7 +110,7 @@ async function issueVoucher(stripe: Stripe, session: Stripe.Checkout.Session, is
       from: sender,
       reply_to: voucherReplyTo,
       to: [buyer],
-      ...voucherEmail({ offer, code: voucher.code, validThrough: voucher.valid_through, url: url.href, logoUrl: new URL('/email/loslasszen-logo.png', origin).href }),
+      ...voucherEmail({ offer, code: voucher.code, validThrough: voucher.valid_through, url: url.href, logoUrl: new URL('/email/loslasszen-logo.png', origin).href, darkLogoUrl: new URL('/email/loslasszen-logo-white.png', origin).href }),
     }),
     signal: AbortSignal.timeout(8000),
   });
