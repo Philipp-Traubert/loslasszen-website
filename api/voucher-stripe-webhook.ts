@@ -57,6 +57,7 @@ async function issueVoucher(stripe: Stripe, session: Stripe.Checkout.Session, is
   const link = id(session.payment_link);
   if (!link) return;
   const paymentLinks = JSON.parse(process.env.VOUCHER_STRIPE_LINK_IDS || '{}') as Record<string, string>;
+  if (process.env.VOUCHER_INTRO_PAYMENT_LINK_ID) paymentLinks.kennenlernen = process.env.VOUCHER_INTRO_PAYMENT_LINK_ID;
   if (Object.values(paymentLinks).filter(value => value === link).length > 1) throw new Error('Ambiguous voucher payment link');
   const testOffer = paymentLinks.weihnachten_test === link;
   const christmasOffer = paymentLinks.weihnachten === link || testOffer;
