@@ -1,4 +1,4 @@
-import { voucherDb } from '../vouchers/store';
+import { voucherDb } from '../vouchers/store.js';
 
 const headers = { 'Cache-Control': 'no-store' };
 

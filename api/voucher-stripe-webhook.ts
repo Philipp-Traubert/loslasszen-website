@@ -1,8 +1,8 @@
 import { randomBytes } from 'node:crypto';
 import Stripe from 'stripe';
-import { christmasVoucherOffer, voucherOffers } from '../src/voucher-offers';
-import { voucherDb } from '../vouchers/store';
-import { voucherEmail, voucherEmailFrom, voucherReplyTo } from '../vouchers/email';
+import { christmasVoucherOffer, voucherOffers } from '../src/voucher-offers.js';
+import { voucherDb } from '../vouchers/store.js';
+import { voucherEmail, voucherEmailFrom, voucherReplyTo } from '../vouchers/email.js';
 
 function id(value: string | { id: string } | null) {
   return typeof value === 'string' ? value : value?.id;
@@ -108,7 +108,7 @@ async function issueVoucher(stripe: Stripe, session: Stripe.Checkout.Session, is
       from: sender,
       reply_to: voucherReplyTo,
       to: [buyer],
-      ...voucherEmail({ offer, code: voucher.code, validThrough: voucher.valid_through, url: url.href, logoUrl: new URL('/email/loslasszen-logo.png', origin).href }),
+      ...voucherEmail({ offer, code: voucher.code, validThrough: voucher.valid_through, url: url.href, logoUrl: new URL('/email/loslasszen-logo.png', origin).href, darkLogoUrl: new URL('/email/loslasszen-logo-white.png', origin).href }),
     }),
     signal: AbortSignal.timeout(8000),
   });
