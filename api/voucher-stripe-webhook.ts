@@ -44,7 +44,9 @@ async function handleWebhook(req: Request) {
     }
     return new Response(null, { status: 204 });
   } catch (error) {
-    console.error('Voucher webhook failed', event.id, error instanceof Error ? error.name : 'UnknownError');
+    const knownErrors = ['Ambiguous voucher payment link', 'Unexpected voucher payment', 'Missing voucher payment marker', 'Missing charge', 'Missing voucher delivery configuration', 'Delivery requires manual review', 'Voucher delivery failed', 'Missing email delivery id'];
+    const reason = error instanceof Error && knownErrors.includes(error.message) ? error.message : error instanceof Error ? error.name : 'UnknownError';
+    console.error('Voucher webhook failed', event.id, reason);
     return new Response(null, { status: 500 });
   }
 }
